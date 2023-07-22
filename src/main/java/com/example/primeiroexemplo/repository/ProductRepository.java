@@ -1,13 +1,13 @@
 package com.example.primeiroexemplo.repository;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
 import com.example.primeiroexemplo.model.Product;
+import com.example.primeiroexemplo.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProductRepository {
@@ -41,7 +41,7 @@ public class ProductRepository {
     public Product update(Product product) {
         Optional<Product> productFound = getById(product.getId());
         if (productFound.isEmpty()) {
-            throw new InputMismatchException("Product Not Found");
+            throw new ResourceNotFoundException("Product Not Found");
         }
 
         delete(product.getId());
