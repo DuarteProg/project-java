@@ -26,7 +26,7 @@ public class ProductRepository {
     }
 
     public Product addProduct(Product product) {
-        ++lastId;
+        lastId++;
 
         product.setId(lastId);
         products.add(product);
