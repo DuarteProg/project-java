@@ -25,7 +25,7 @@ public class ProductRepository {
                 .findFirst();
     }
 
-    public Product add(Product product) {
+    public Product addProduct(Product product) {
         ++lastId;
 
         product.setId(lastId);
