@@ -16,23 +16,23 @@ public class ProductService {
     private ProductRepository productRepository;
 
     public List<Product> getAll() {
-        return productRepository.getAll();
+        return productRepository.findAll();
     }
 
     public Optional<Product> getById(Integer id) {
-        return productRepository.getById(id);
+        return productRepository.findById(id);
     }
 
     public Product addProduct(Product product) {
-        return productRepository.addProduct(product);
+        return productRepository.save(product);
     }
 
     public void delete(Integer id) {
-        productRepository.delete(id);
+        productRepository.deleteById(id);
     }
 
     public Product update(Integer id, Product product) {
         product.setId(id);
-        return productRepository.update(product);
+        return productRepository.save(product);
     }
 }
